@@ -9,6 +9,8 @@ f = gzip.open('data/t10k-images-idx3-ubyte.gz', 'rb')
 magic = f.read(4) 
 
 print (magic)
+int.from_bytes(magic, byteorder='big')
+f.close()
 # Currently reads \x00\x00\x08\x03 -> 00000000 00000000 00001000 00000011 in binary
 
 #file.read(1)
