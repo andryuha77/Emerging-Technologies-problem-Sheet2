@@ -4,13 +4,19 @@
 
 import gzip
 
-f = gzip.open('data/t10k-images-idx3-ubyte.gz', 'rb')
+def read_labels_from_file(filename):
+    with gzip.open(filename, 'rb') as f:
+        magic = f.read(4) 
+        magic = int.from_bytes(magic,'big')
+        print ("Magic is:", magic)
 
-magic = f.read(4) 
+        nolab = f.read(4)
+        nolab = int.from_bytes(nolab,'big')
+        print ("Number of labels:", nolab)
 
-print (magic)
-int.from_bytes(magic, byteorder='big')
-f.close()
-# Currently reads \x00\x00\x08\x03 -> 00000000 00000000 00001000 00000011 in binary
+        labels = [f.read(1) for i in range(nolab)]
+        labels = [int.from_bytes(label, 'big')for label in labels]
+    return labels
 
-#file.read(1)
+train_labels  = read_labels_from_file('data/train-labels-idx1-ubyte.gz')
+test_labels  = read_labels_from_file('data/t10k-labels-idx1-ubyte.gz')
