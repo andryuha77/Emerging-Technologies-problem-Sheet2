@@ -3,6 +3,7 @@
 # Read gzip file adapted from https://stackoverflow.com/questions/12902540/read-from-a-gzip-file-in-python
 
 import gzip
+import PIL.image as pil
 
 def read_labels_from_file(filename):
     with gzip.open(filename, 'rb') as f:
@@ -20,3 +21,11 @@ def read_labels_from_file(filename):
 
 train_labels  = read_labels_from_file('data/train-labels-idx1-ubyte.gz')
 test_labels  = read_labels_from_file('data/t10k-labels-idx1-ubyte.gz')
+
+
+img = train.images(np.array[4999])
+img = np.array(img)
+img = pil.fromarray(img)
+img = img.convert('RGB')
+img.show()
+img.save('2.png')
