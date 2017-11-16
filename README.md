@@ -34,4 +34,6 @@ Install numpy
 
 cd to the repository folder.
 
-To run any file use: 
+To run use: 
+
+``` python MNIST.py ```
