@@ -21,3 +21,17 @@ Do this by representing any pixel value less than 128 as a full stop and any oth
 
 ## 3. Output the image files as PNGs
 Use Python to output the image files as PNGs, saving them in a subfolder in your repository.
+
+## How to run?
+
+Python required to running the scripts. 
+
+Can be easily achieved by installing: [Anaconda](https://www.anaconda.com/download/)
+
+Install numpy
+
+``` conda install numpy ```
+
+cd to the repository folder.
+
+To run any file use: 
